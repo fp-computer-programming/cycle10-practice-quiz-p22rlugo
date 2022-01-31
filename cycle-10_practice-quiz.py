@@ -23,11 +23,39 @@ def factorial(numb):
     while number < numb:
             if number %2 == 0:
                 numbers_to_add.append(number)
+            number += 1
                 
-            number = 0 
-            for n in numbers_to_add:
-                number += n
-            break
+
+    number = 0 
+    for n in numbers_to_add:
+        number += n
+
     return number
 
 print(factorial(5))
+
+# Question 3
+def fib_nums(numb):
+
+    number = 0
+    add_numbers = 0
+
+    num_table = [0]
+
+    while number < numb:
+        if number == 0:
+            number += 1
+            num_table.append(1)
+
+        for numbers in num_table[-2:]:
+            add_numbers += numbers
+        # Check if it will reach the final numb
+        if add_numbers == numb:
+            return num_table 
+
+        num_table.append(add_numbers)
+        number += 1
+        add_numbers = 0
+
+print(fib_nums(5) == [0,1,1,2,3])
+print(fib_nums(10) == [0,1,1,2,3,5,8,13,21,34])
